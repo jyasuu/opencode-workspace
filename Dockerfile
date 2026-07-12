@@ -19,3 +19,6 @@ ENV GLAB_URL="https://gitlab.com/gitlab-org/cli/-/releases/v1.107.0/downloads/gl
 RUN curl -sSL "${GLAB_URL}" | tar -xz -C /tmp \
     && mv /tmp/bin/glab /usr/local/bin/glab \
     && rm -rf /tmp/*
+
+RUN bash -c 'curl -fsSL https://raw.githubusercontent.com/jyasuu/okf-mcp-server/refs/heads/main/scripts/install.sh | bash && /root/.opencode/bin/opencode mcp add okf -- okf-mcp-server'
+

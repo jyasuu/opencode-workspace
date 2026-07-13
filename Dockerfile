@@ -23,3 +23,4 @@ RUN curl -sSL "${GLAB_URL}" | tar -xz -C /tmp \
 RUN bash -c 'curl -fsSL https://raw.githubusercontent.com/jyasuu/okf-mcp-server/refs/heads/main/scripts/install.sh | bash && /root/.opencode/bin/opencode mcp add okf -- okf-mcp-server'
 RUN bash -c 'npx skills@latest add -p -y jyasuu/okf-mcp-server --skill okf-spec'
 
+RUN bash -c 'npx playwright install chromium && npx playwright install-deps chromium && rm -rf /var/lib/apt/lists/*'

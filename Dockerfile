@@ -31,3 +31,12 @@ RUN bash -c 'npx skills@latest add -p -y anthropics/skills --skill frontend-desi
 RUN bash -c 'npx skills@latest add -p -y jyasuu/skills --skill postgres-lock-diagnostics postgres-safe-migration'
 
 
+# --- Graphify: knowledge-graph skill for AI coding assistants ---
+# Requires Python 3.10+ and uv (installed below), then registers the
+# /graphify skill with opencode.
+RUN curl -LsSf https://astral.sh/uv/install.sh | sh
+ENV PATH="/root/.local/bin:${PATH}"
+RUN uv tool install graphifyy \
+    && uv tool update-shell \
+    && graphify install --platform opencode --project
+    

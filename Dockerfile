@@ -25,12 +25,6 @@ RUN bash -c 'npx skills@latest add -p -y jyasuu/okf-mcp-server --skill okf-spec'
 
 RUN bash -c 'npx playwright install chromium && npx playwright install-deps chromium && rm -rf /var/lib/apt/lists/*'
 
-RUN bash -c 'npx skills@latest add -p -y nextlevelbuilder/ui-ux-pro-max-skill --skill ui-ux-pro-max'
-RUN bash -c 'npx skills@latest add -p -y vercel-labs/agent-skills --skill vercel-composition-patterns vercel-react-best-practices web-design-guidelines vercel-react-native-skills'
-RUN bash -c 'npx skills@latest add -p -y anthropics/skills --skill frontend-design'
-RUN bash -c 'npx skills@latest add -p -y jyasuu/skills --skill postgres-lock-diagnostics postgres-safe-migration'
-
-
 # --- Graphify: knowledge-graph skill for AI coding assistants ---
 # Requires Python 3.10+ and uv (installed below), then registers the
 # /graphify skill with opencode.
@@ -40,3 +34,10 @@ RUN uv tool install graphifyy \
     && uv tool update-shell \
     && graphify install --platform opencode --project
     
+
+RUN bash -c 'npx skills@latest add -p -y nextlevelbuilder/ui-ux-pro-max-skill --skill ui-ux-pro-max'
+RUN bash -c 'npx skills@latest add -p -y vercel-labs/agent-skills --skill vercel-composition-patterns vercel-react-best-practices web-design-guidelines vercel-react-native-skills'
+RUN bash -c 'npx skills@latest add -p -y anthropics/skills --skill frontend-design'
+RUN bash -c 'npx skills@latest add -p -y jyasuu/skills --skill postgres-lock-diagnostics postgres-safe-migration'
+RUN bash -c 'npx skills@latest add -p -y jyasuu/nextjs-oauth2-app --skill nextjs-oauth2'
+

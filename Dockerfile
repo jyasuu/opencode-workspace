@@ -9,6 +9,7 @@ RUN curl -fsSL https://deb.nodesource.com/setup_24.x | bash - && \
     apt-get install -y nodejs && \
     rm -rf /var/lib/apt/lists/*
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+ENV PATH="/root/.cargo/bin:${PATH}"
 RUN bash -c 'cargo install --git https://github.com/rtk-ai/rtk && rtk init -g --opencode '
 RUN curl -fsSL https://opencode.ai/install | bash
 RUN bash -c '/root/.opencode/bin/opencode plugin -g superpowers@git+https://github.com/obra/superpowers.git'

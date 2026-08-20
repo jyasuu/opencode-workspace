@@ -134,3 +134,18 @@ curl localhost:9090/api/overview                  # traefik dashboard API
 | Use a Docker-API tool | `podman system service --time=0 unix:///run/podman/podman.sock` |
 | Clean stale containers | `podman rm -f -a` |
 | Diagnose run failures | `podman ps -a`, `podman logs <name>`, `podman inspect <name>` |
+
+
+## For Docker
+
+```bash
+mkdir /etc/docker
+cat >/etc/docker/daemon.json <<EOF
+{
+  "storage-driver": "vfs"
+}
+EOF
+apt update && apt install docker-compose-v2
+dockerd &
+docker run --rm hello-world
+```

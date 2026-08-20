@@ -28,6 +28,7 @@ Start the container privileged and keep it alive:
 
 ```bash
 docker run -d --name ws --privileged ghcr.io/jyasuu/opencode-workspace:main sleep infinity
+# docker run -d --name ws --privileged --cgroupns=host -v /sys/fs/cgroup:/sys/fs/cgroup:rw ghcr.io/jyasuu/opencode-workspace:main sleep infinity
 ```
 
 Install podman and curl:

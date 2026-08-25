@@ -46,3 +46,5 @@ RUN bash -c 'npx skills@latest add -p -y jyasuu/nextjs-oauth2-app --skill nextjs
 RUN bash -c 'npx skills@latest add -g -y tt-a1i/archify'
 # CHROME_PATH=~/.cache/ms-playwright/chromium-1228/chrome-linux64/chrome
 RUN bash -c 'curl -fsSL https://raw.githubusercontent.com/jyasuu/chromium-mcp/refs/heads/main/scripts/install.sh | bash &&  /root/.opencode/bin/opencode mcp add chromium-mcp -- chromium-mcp'
+
+RUN bash -c 'npm install @deepseek-ai/dsh -g'

@@ -36,7 +36,6 @@ ENV PATH="/root/.local/bin:${PATH}"
 RUN uv tool install graphifyy \
     && uv tool update-shell \
     && graphify install --platform opencode --project
-    add 
 
 RUN bash -c 'npx skills@latest add -p -y nextlevelbuilder/ui-ux-pro-max-skill --skill ui-ux-pro-max'
 RUN bash -c 'npx skills@latest add -p -y vercel-labs/agent-skills --skill vercel-composition-patterns vercel-react-best-practices web-design-guidelines vercel-react-native-skills'

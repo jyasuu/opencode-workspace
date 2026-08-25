@@ -36,13 +36,13 @@ ENV PATH="/root/.local/bin:${PATH}"
 RUN uv tool install graphifyy \
     && uv tool update-shell \
     && graphify install --platform opencode --project
-    
+    add 
 
 RUN bash -c 'npx skills@latest add -p -y nextlevelbuilder/ui-ux-pro-max-skill --skill ui-ux-pro-max'
 RUN bash -c 'npx skills@latest add -p -y vercel-labs/agent-skills --skill vercel-composition-patterns vercel-react-best-practices web-design-guidelines vercel-react-native-skills'
 RUN bash -c 'npx skills@latest add -p -y anthropics/skills --skill frontend-design'
 RUN bash -c 'npx skills@latest add -p -y jyasuu/skills --skill postgres-lock-diagnostics postgres-safe-migration'
 RUN bash -c 'npx skills@latest add -p -y jyasuu/nextjs-oauth2-app --skill nextjs-oauth2'
-
+RUN bash -c 'npx skills@latest add -g -y tt-a1i/archify'
 # CHROME_PATH=~/.cache/ms-playwright/chromium-1228/chrome-linux64/chrome
 RUN bash -c 'curl -fsSL https://raw.githubusercontent.com/jyasuu/chromium-mcp/refs/heads/main/scripts/install.sh | bash &&  /root/.opencode/bin/opencode mcp add chromium-mcp -- chromium-mcp'

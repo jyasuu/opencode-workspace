@@ -49,7 +49,7 @@ RUN bash -c 'npx skills@latest add -p -y vercel-labs/agent-skills --skill vercel
 RUN bash -c 'npx skills@latest add -p -y anthropics/skills --skill frontend-design'
 RUN bash -c 'npx skills@latest add -p -y jyasuu/skills --skill postgres-lock-diagnostics postgres-safe-migration'
 RUN bash -c 'npx skills@latest add -p -y jyasuu/nextjs-oauth2-app --skill nextjs-oauth2'
-RUN bash -c 'npx skills@latest add -g -y tt-a1i/archify'
+RUN bash -c 'npx skills@latest add -p -y tt-a1i/archify'
 # CHROME_PATH=~/.cache/ms-playwright/chromium-1228/chrome-linux64/chrome
 RUN bash -c 'curl -fsSL https://raw.githubusercontent.com/jyasuu/chromium-mcp/refs/heads/main/scripts/install.sh | bash &&  /root/.opencode/bin/opencode mcp add chromium-mcp -- chromium-mcp'
 

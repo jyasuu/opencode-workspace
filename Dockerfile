@@ -20,15 +20,15 @@ RUN bash -c '/root/.opencode/bin/opencode plugin -g superpowers@git+https://gith
 RUN bash -c 'npm install -g @fission-ai/openspec@latest && openspec init --tools opencode'
 RUN bash -c 'npx skills@latest add -p -y mattpocock/skills --all'
 
+RUN bash -c 'curl --location --remote-name https://github.com/Orange-OpenSource/hurl/releases/download/8.0.0/hurl_8.0.0_amd64.deb && apt update && apt install ./hurl_8.0.0_amd64.deb' && \
+    rm -rf /var/lib/apt/lists/*
+
 # Define the URL as an environment variable for clarity
 ENV GLAB_URL="https://gitlab.com/gitlab-org/cli/-/releases/v1.107.0/downloads/glab_1.107.0_linux_amd64.tar.gz"
 # Download, extract, and install the glab binary
 RUN curl -sSL "${GLAB_URL}" | tar -xz -C /tmp \
     && mv /tmp/bin/glab /usr/local/bin/glab \
     && rm -rf /tmp/*
-
-RUN bash -c 'curl -fsSL https://raw.githubusercontent.com/jyasuu/okf-mcp-server/refs/heads/main/scripts/install.sh | bash && /root/.opencode/bin/opencode mcp add okf -- okf-mcp-server'
-RUN bash -c 'npx skills@latest add -p -y jyasuu/okf-mcp-server --skill okf-spec'
 
 RUN bash -c 'npx playwright install chromium && npx playwright install-deps chromium && rm -rf /var/lib/apt/lists/*' && \
     CHROME_BIN=$(find /root/.cache/ms-playwright -maxdepth 1 -type d -name 'chromium-*')/chrome-linux64/chrome && \
@@ -52,5 +52,8 @@ RUN bash -c 'npx skills@latest add -p -y jyasuu/nextjs-oauth2-app --skill nextjs
 RUN bash -c 'npx skills@latest add -p -y tt-a1i/archify'
 # CHROME_PATH=~/.cache/ms-playwright/chromium-1228/chrome-linux64/chrome
 RUN bash -c 'curl -fsSL https://raw.githubusercontent.com/jyasuu/chromium-mcp/refs/heads/main/scripts/install.sh | bash &&  /root/.opencode/bin/opencode mcp add chromium-mcp -- chromium-mcp'
-RUN bash -c 'curl -fsSL https://raw.githubusercontent.com/jyasuu/ctxbroker/refs/heads/main/scripts/install.sh | bash && https://raw.githubusercontent.com/jyasuu/opencode-workspace/refs/heads/main/scripts/init-nats.sh | bash'
+# RUN bash -c 'curl -fsSL https://raw.githubusercontent.com/jyasuu/ctxbroker/refs/heads/main/scripts/install.sh | bash && https://raw.githubusercontent.com/jyasuu/opencode-workspace/refs/heads/main/scripts/init-nats.sh | bash'
 RUN bash -c 'npm install @deepseek-ai/dsh -g'
+
+# RUN bash -c 'curl -fsSL https://raw.githubusercontent.com/jyasuu/okf-mcp-server/refs/heads/main/scripts/install.sh | bash && /root/.opencode/bin/opencode mcp add okf -- okf-mcp-server'
+# RUN bash -c 'npx skills@latest add -p -y jyasuu/okf-mcp-server --skill okf-spec'

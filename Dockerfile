@@ -53,7 +53,9 @@ RUN bash -c 'npx skills@latest add -p -y tt-a1i/archify'
 # CHROME_PATH=~/.cache/ms-playwright/chromium-1228/chrome-linux64/chrome
 RUN bash -c 'curl -fsSL https://raw.githubusercontent.com/jyasuu/chromium-mcp/refs/heads/main/scripts/install.sh | bash &&  /root/.opencode/bin/opencode mcp add chromium-mcp -- chromium-mcp'
 # RUN bash -c 'curl -fsSL https://raw.githubusercontent.com/jyasuu/ctxbroker/refs/heads/main/scripts/install.sh | bash && https://raw.githubusercontent.com/jyasuu/opencode-workspace/refs/heads/main/scripts/init-nats.sh | bash'
-RUN bash -c 'npm install @deepseek-ai/dsh -g'
+# RUN bash -c 'npm install @deepseek-ai/dsh -g'
+
+RUN bash -c 'curl -fsSL https://raw.githubusercontent.com/DeusData/codebase-memory-mcp/main/install.sh | bash'
 
 # RUN bash -c 'curl -fsSL https://raw.githubusercontent.com/jyasuu/okf-mcp-server/refs/heads/main/scripts/install.sh | bash && /root/.opencode/bin/opencode mcp add okf -- okf-mcp-server'
 # RUN bash -c 'npx skills@latest add -p -y jyasuu/okf-mcp-server --skill okf-spec'

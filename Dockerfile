@@ -39,10 +39,10 @@ ENV CHROME_PATH=/usr/local/bin/chromium
 # --- Graphify: knowledge-graph skill for AI coding assistants ---
 # Requires Python 3.10+ and uv (installed below), then registers the
 # /graphify skill with opencode.
-RUN curl -LsSf https://astral.sh/uv/install.sh | sh
-RUN uv tool install graphifyy \
-    && uv tool update-shell \
-    && graphify install --platform opencode --project
+# RUN curl -LsSf https://astral.sh/uv/install.sh | sh
+# RUN uv tool install graphifyy \
+#     && uv tool update-shell \
+#     && graphify install --platform opencode --project
 
 RUN bash -c 'npx skills@latest add -p -y nextlevelbuilder/ui-ux-pro-max-skill --skill ui-ux-pro-max'
 RUN bash -c 'npx skills@latest add -p -y vercel-labs/agent-skills --skill vercel-composition-patterns vercel-react-best-practices web-design-guidelines vercel-react-native-skills'

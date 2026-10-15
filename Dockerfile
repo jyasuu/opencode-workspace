@@ -15,7 +15,7 @@ RUN curl -fsSL https://deb.nodesource.com/setup_24.x | bash - && \
 #     rm -rf ~/.cargo/registry && rm -rf ~/.cargo/git
 RUN bash -c 'curl -fsSL https://raw.githubusercontent.com/rtk-ai/rtk/refs/heads/master/install.sh | sh && rtk init -g --opencode '
 
-RUN curl -fsSL https://opencode.ai/install | bash
+RUN curl -fsSL https://opencode.ai/v2/install | bash
 RUN bash -c '/root/.opencode/bin/opencode plugin -g superpowers@git+https://github.com/obra/superpowers.git'
 RUN bash -c 'npm install -g @fission-ai/openspec@latest && openspec init --tools opencode'
 RUN bash -c 'npx skills@latest add -p -y mattpocock/skills --all'

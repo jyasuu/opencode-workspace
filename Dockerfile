@@ -61,3 +61,7 @@ RUN bash -c 'curl -fsSL https://raw.githubusercontent.com/DeusData/codebase-memo
 # RUN bash -c 'npx skills@latest add -p -y jyasuu/okf-mcp-server --skill okf-spec'
 
 # RUN bash -c 'npm install -g @alibaba-group/open-code-review'
+
+
+RUN bash -c 'curl -fsSL https://herdr.dev/install.sh | sh'
+RUN bash -c 'herdr integration install opencode'
